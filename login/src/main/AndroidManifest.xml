@@ -3,13 +3,16 @@
     package="com.wd.login">
 
     <application>
-        <activity android:name=".login_LoginActivity">
+        <activity android:name=".activity.login_RegisterActivity"></activity>
+        <activity android:name=".activity.login_GuidepageActivity" />
+        <activity android:name=".activity.login_FiringActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".login_LoginActivity" />
     </application>
 
 </manifest>

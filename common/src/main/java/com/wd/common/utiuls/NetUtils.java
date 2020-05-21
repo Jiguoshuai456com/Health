@@ -22,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class NetUtils {
-    public static final String BASE_URL = "http://mobile.bwstudent.com/movieApi/";
+    String BaseUrl="http://mobile.bwstudent.com/";
     private Apis apis;
 
     private NetUtils(){
@@ -46,7 +46,7 @@ public class NetUtils {
         return false;
     }
 
-    public void initHttp() {
+    private Retrofit initHttp() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -58,14 +58,13 @@ public class NetUtils {
                 .addNetworkInterceptor(httpLoggingInterceptor)
                 .build();
 
-        Retrofit build1 = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BaseUrl)
                 .client(build)
-                .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-        apis = build1.create(Apis.class);
+        return retrofit;
     }
     public Apis getApis(){
         return apis;
@@ -91,4 +90,8 @@ public class NetUtils {
             return chain.proceed(build);
         }
     }
+    public <T>T getRetrofitServie(Class<T> cls){
+        return initHttp().create(cls);
+    }
+
 }

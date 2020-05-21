@@ -1,7 +1,5 @@
-package com.wd.login;
+package com.wd.login.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -9,6 +7,8 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wd.common.Base.BaseActivity;
 import com.wd.common.Base.BasePresenter;
+import com.wd.login.R;
+import com.wd.login.R2;
 
 import butterknife.BindView;
 

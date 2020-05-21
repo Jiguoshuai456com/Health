@@ -1,10 +1,11 @@
 package com.wd.common.Base;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
-import butterknife.ButterKnife;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.jaeger.library.StatusBarUtil;
 
 
 public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
@@ -12,8 +13,11 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getSupportActionBar()!=null) {
+            getSupportActionBar().hide();
+        }
+        StatusBarUtil.setTransparent(this);
         setContentView(getLayout());
-        ButterKnife.bind(this);
         mPresenter = initPresenter();
         initView();
         initData();

@@ -3,7 +3,7 @@
     package="com.wd.main">
 
     <application>
-        <activity android:name=".CeActivity"></activity>
+        <activity android:name=".HomeActivity"></activity>
     </application>
 
 </manifest>

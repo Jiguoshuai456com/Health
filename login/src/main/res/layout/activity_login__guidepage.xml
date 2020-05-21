@@ -1,13 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     tools:context=".activity.login_GuidepageActivity">
-    <com.stx.xhb.xbanner.XBanner
-        android:id="@+id/login_xb"
+    <android.support.v4.view.ViewPager
+       android:layout_marginTop="@dimen/dp_150"
+        android:id="@+id/guide_vp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="@dimen/dp_186"
+        android:layout_height="@dimen/dp_186">
+    </android.support.v4.view.ViewPager>
+
+    <TextView
+        android:id="@+id/guide_tv"
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></com.stx.xhb.xbanner.XBanner>
-</LinearLayout>
+        android:layout_height="@dimen/dp_40"
+        android:textSize="@dimen/sp_14"
+        android:text="xxx"
+        android:textColor="#333333"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_422"
+        android:gravity="center"/>
+<Button
+    android:id="@+id/guide_bt"
+    android:layout_marginTop="@dimen/dp_80"
+    android:layout_below="@+id/guide_tv"
+   android:layout_centerHorizontal="true"
+    android:layout_width="@dimen/dp_100"
+    android:layout_height="@dimen/dp_40"
+    android:text="马上进入"
+
+    android:textSize="@dimen/sp_14"
+    android:textColor="#ffffff"
+    android:background="#3087ea"/>
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dip">
+
+        <LinearLayout
+            android:id="@+id/guide_ll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+        </LinearLayout>
+
+        <View
+            android:id="@+id/guide_vw"
+            android:layout_width="@dimen/dp_10"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/point_deep"/>
+    
+    </RelativeLayout>
+
+
+</RelativeLayout>

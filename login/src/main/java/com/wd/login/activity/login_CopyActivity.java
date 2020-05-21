@@ -1,0 +1,118 @@
+package com.wd.login.activity;
+
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.wd.common.Base.BaseActivity;
+import com.wd.common.Base.BasePresenter;
+import com.wd.login.R;
+import com.wd.login.R2;
+import com.wd.login.bean.login_EmailBean;
+import com.wd.login.bean.login_LoginBean;
+import com.wd.login.bean.login_RegisterBean;
+import com.wd.login.contarct.login_LoginContract;
+import com.wd.login.login_LoginActivity;
+import com.wd.login.presenter.login_LoginPresenter;
+
+import butterknife.BindView;
+import butterknife.OnClick;
+
+/**
+ * 忘记密码页   调用错接口类了明天改了
+ */
+public class login_CopyActivity extends BaseActivity implements login_LoginContract.LoginIView{
+    @BindView(R2.id.copy_back_zuo)
+    ImageView zuo;
+    @BindView(R2.id.copy_email)
+    EditText email;
+    @BindView(R2.id.copy_code)
+    EditText code;
+    @BindView(R2.id.copy_bt_hqyz)
+    Button hqyz;
+    @BindView(R2.id.copy_btxia)
+    Button btxia;
+
+    @Override
+    protected int getLayout() {
+        return R.layout.activity_login__copy;
+    }
+
+    @Override
+    protected BasePresenter initPresenter() {
+        return new login_LoginPresenter(this);
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+
+
+    @Override
+    public void onLogSuccess(login_LoginBean loginBean) {
+
+    }
+
+    @Override
+    public void onLogError(String str) {
+
+    }
+
+    @Override
+    public void onRegisterSuccess(login_RegisterBean registerBean) {
+
+    }
+
+    @Override
+    public void onRegisterError(String str) {
+
+    }
+
+    @Override
+    public void onEmailSuccess(login_EmailBean emailBean) {
+        if (emailBean!=null){
+            Toast.makeText(this, ""+emailBean.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void onEmailError(String str) {
+
+    }
+    //获取验证码
+    @OnClick(R2.id.copy_bt_hqyz)
+    public void setonClickhq() {
+        if (!TextUtils.isEmpty(email.getText().toString())) {
+            BasePresenter presenter = getPresenter();
+            if (presenter != null && presenter instanceof login_LoginPresenter) {
+                ((login_LoginPresenter) presenter).postEmail(email.getText().toString());
+
+            }
+        } else {
+            Toast.makeText(this, "请输入正确的邮箱", Toast.LENGTH_SHORT).show();
+        }
+    }
+    @OnClick(R2.id.copy_btxia)
+    public void setbtxia(){
+
+        Intent intent = new Intent(login_CopyActivity.this, SetPasswordActivity.class);
+        startActivity(intent);
+    }
+    @OnClick(R2.id.copy_back_zuo)
+    public void setzuo(){
+        Intent intent = new Intent(login_CopyActivity.this, login_LoginActivity.class);
+        startActivity(intent);
+    }
+}

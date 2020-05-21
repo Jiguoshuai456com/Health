@@ -22,8 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class NetUtils {
-    String BaseUrl="http://mobile.bwstudent.com/";
-    private Apis apis;
+    String BaseUrl="http://mobile.bwstudent.com/health/share/";
 
     private NetUtils(){
         initHttp();
@@ -65,9 +64,6 @@ public class NetUtils {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         return retrofit;
-    }
-    public Apis getApis(){
-        return apis;
     }
 
     public class HandlerInt implements Interceptor{

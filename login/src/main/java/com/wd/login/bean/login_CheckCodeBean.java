@@ -4,8 +4,9 @@ package com.wd.login.bean;
  *@Auther:cln
  *@Date: 2020/5/22
  *@Time:1:43
- *@Description:
- * */public class login_CheckCodeBean {
+ *@Description:忘记密码
+  *  * */
+public class login_CheckCodeBean {
 
     /**
      * message : 验证通过

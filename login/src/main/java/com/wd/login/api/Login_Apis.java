@@ -40,4 +40,5 @@ import retrofit2.http.Query;
     //重置用户密码
 //    @PUT("user/v1/resetUserPwd")
 //    Observable<login_ResetUserPwdBean>doResetUserPwd(@Query("email")String email,@Query("pwd1")String pwd1,@Query("pwd2")String pwd2);
+
 }

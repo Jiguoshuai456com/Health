@@ -130,7 +130,6 @@ Button hq;
     //获取验证码
     @OnClick(R2.id.register_hq)
     public void setonClickhq(){
-        Toast.makeText(this, "aaaaaaaaa", Toast.LENGTH_SHORT).show();
         if (!TextUtils.isEmpty(email.getText().toString())){
             BasePresenter presenter = getPresenter();
             if (presenter!=null&&presenter instanceof login_LoginPresenter){

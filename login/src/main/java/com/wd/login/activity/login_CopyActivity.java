@@ -19,7 +19,6 @@ import com.wd.login.bean.login_LoginBean;
 import com.wd.login.bean.login_RegisterBean;
 import com.wd.login.contarct.login_CheckContarct;
 import com.wd.login.contarct.login_LoginContract;
-import com.wd.login.login_LoginActivity;
 import com.wd.login.presenter.login_CheckIPresenter;
 import com.wd.login.presenter.login_LoginPresenter;
 

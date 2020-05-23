@@ -24,7 +24,6 @@ import com.wd.login.bean.login_EmailBean;
 import com.wd.login.bean.login_LoginBean;
 import com.wd.login.bean.login_RegisterBean;
 import com.wd.login.contarct.login_LoginContract;
-import com.wd.login.login_LoginActivity;
 import com.wd.login.presenter.login_LoginPresenter;
 import com.wd.login.utile.EncryptUtil;
 import com.wd.login.utile.RsaCoder;

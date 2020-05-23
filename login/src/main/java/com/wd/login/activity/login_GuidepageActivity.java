@@ -23,7 +23,7 @@ import com.wd.common.Base.BasePresenter;
 import com.wd.login.R;
 import com.wd.login.R2;
 import com.wd.login.adapter.GuideAdapter;
-import com.wd.login.login_LoginActivity;
+
 
 import java.util.ArrayList;
 

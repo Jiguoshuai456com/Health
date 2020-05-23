@@ -2,14 +2,22 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wd.login">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application>
-        <activity android:name=".login_LoginActivity">
+        <activity android:name=".activity.HealthPageActivity"></activity>
+        <activity android:name=".activity.SetPasswordActivity" />
+        <activity android:name=".activity.login_CopyActivity" />
+        <activity android:name=".activity.login_RegisterActivity" />
+        <activity android:name=".activity.login_GuidepageActivity" />
+        <activity android:name=".activity.login_FiringActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.login_LoginActivity" />
     </application>
 
 </manifest>

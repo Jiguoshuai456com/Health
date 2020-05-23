@@ -22,8 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 public class NetUtils {
-    public static final String BASE_URL = "http://mobile.bwstudent.com/movieApi/";
-    private Apis apis;
+    String BaseUrl="http://mobile.bwstudent.com/health/share/";
 
     private NetUtils(){
         initHttp();
@@ -46,7 +45,7 @@ public class NetUtils {
         return false;
     }
 
-    public void initHttp() {
+    private Retrofit initHttp() {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
@@ -58,17 +57,13 @@ public class NetUtils {
                 .addNetworkInterceptor(httpLoggingInterceptor)
                 .build();
 
-        Retrofit build1 = new Retrofit.Builder()
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(BaseUrl)
                 .client(build)
-                .baseUrl(BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
-
-        apis = build1.create(Apis.class);
-    }
-    public Apis getApis(){
-        return apis;
+        return retrofit;
     }
 
     public class HandlerInt implements Interceptor{
@@ -91,4 +86,8 @@ public class NetUtils {
             return chain.proceed(build);
         }
     }
+    public <T>T getRetrofitServie(Class<T> cls){
+        return initHttp().create(cls);
+    }
+
 }

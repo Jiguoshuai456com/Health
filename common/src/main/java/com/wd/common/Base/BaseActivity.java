@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import butterknife.ButterKnife;
 
 
-public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity {
+public abstract class BaseActivity<P extends BasePresenter> extends AppCompatActivity implements IBaseView{
     P mPresenter;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

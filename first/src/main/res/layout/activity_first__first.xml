@@ -56,6 +56,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <ImageView
+                    android:id="@+id/iv_disease"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_marginTop="@dimen/dp_10"
                     android:src="@mipmap/first_bingzheng"
@@ -91,6 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <ImageView
+                    android:id="@+id/iv_drugs"
                     android:layout_marginLeft="@dimen/dp_10"
                     android:layout_marginTop="@dimen/dp_10"
                     android:src="@mipmap/first_yao"
@@ -305,6 +307,93 @@
             android:src="@mipmap/first_xiong"
             android:layout_width="match_parent"
             android:layout_height="@dimen/dp_160" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+            <View
+                android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/dp_10"
+                android:background="#3087ea"
+                android:layout_width="@dimen/dp_3"
+                android:layout_height="@dimen/dp_25">
+            </View>
+            <TextView
+                android:layout_marginLeft="@dimen/dp_10"
+                android:layout_gravity="center"
+                android:textSize="16sp"
+                android:textColor="#3087ea"
+                android:text="健康资讯"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <View
+            android:background="#ccc"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"></View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_40">
+            <RadioGroup
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RadioButton
+                    android:textColor="@color/color_radiobutton"
+                    android:gravity="center"
+                    android:button="@null"
+                    android:layout_weight="1"
+                    android:text="健康新闻"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                </RadioButton>
+                <RadioButton
+                    android:textColor="@color/color_radiobutton"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="医学动态"
+                    android:button="@null"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                </RadioButton>
+                <RadioButton
+                    android:textColor="@color/color_radiobutton"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="医疗动态"
+                    android:button="@null"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                </RadioButton>
+                <RadioButton
+                    android:textColor="@color/color_radiobutton"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="养生美容"
+                    android:button="@null"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                </RadioButton>
+                <RadioButton
+                    android:textColor="@color/color_radiobutton"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="健康新闻"
+                    android:button="@null"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                </RadioButton>
+            </RadioGroup>
+        </LinearLayout>
     </LinearLayout>
 
 

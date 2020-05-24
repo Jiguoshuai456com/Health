@@ -85,7 +85,6 @@
                     android:layout_height="wrap_content"
                     android:hint="请输入密码"
                     android:background="@null"
-                    android:inputType="number"
                     android:textSize="@dimen/sp_14"
                     android:textColorHint="#999999"/>
                 <ImageView

@@ -17,6 +17,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends AppCompatAct
         mPresenter = initPresenter();
         initView();
         initData();
+
     }
 
     protected P getPresenter(){

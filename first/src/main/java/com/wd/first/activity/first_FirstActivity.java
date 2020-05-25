@@ -1,5 +1,6 @@
 package com.wd.first.activity;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,7 +27,8 @@ import butterknife.BindView;
 public class first_FirstActivity extends BaseActivity implements IHomeContract.IView {
     @BindView(R2.id.first_xb)
     XBanner xb;
-
+    @BindView(R2.id.iv_disease)
+    ImageView disease;
     public ArrayList<String> list=new ArrayList<>();
 
     @Override
@@ -66,6 +68,13 @@ public class first_FirstActivity extends BaseActivity implements IHomeContract.I
             public void loadBanner(XBanner banner, Object model, View view, int position) {
                 ImageView view1= (ImageView) view;
                 Glide.with(first_FirstActivity.this).load(list.get(position)).into(view1);
+            }
+        });
+        disease.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(first_FirstActivity.this,first_DepartmenActivity.class);
+                startActivity(intent);
             }
         });
 

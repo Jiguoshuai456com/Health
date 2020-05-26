@@ -1,7 +1,7 @@
 package com.wd.login.model;
 
-import com.wd.login.bean.login_CheckCodeBean;
-import com.wd.login.contarct.login_CheckContarct;
+import com.wd.login.bean.login_SinckCircleBean;
+import com.wd.login.contarct.SickCircleContarct;
 import com.wd.login.utile.NetUtils;
 
 import io.reactivex.Observer;
@@ -11,33 +11,33 @@ import io.reactivex.schedulers.Schedulers;
 
 /*
  *@Auther:cln
- *@Date: 2020/5/22
- *@Time:19:45
+ *@Date: 2020/5/26
+ *@Time:22:52
  *@Description:
- * */public class login_CheckIModel implements login_CheckContarct.onCheckModel {
+ * */public class SinckCircleIModel implements SickCircleContarct.SinckCircleModel {
 
     @Override
-    public void postCheck(String email, String code, CheckICallBack iCallBack) {
-        NetUtils.getInstance().getApis().doCheckCode(email,code)
-                .subscribeOn(Schedulers.io())
+    public void getSinckCircle(int departmentId, int page, int count, SinckCircleICallBack iCallBack) {
+        NetUtils.getInstance().getApis().doSinckCircle(departmentId,page,count)
+                . subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<login_CheckCodeBean>() {
+                .subscribe(new Observer<login_SinckCircleBean>() {
                     @Override
                     public void onSubscribe(Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(login_CheckCodeBean login_checkCodeBean) {
+                    public void onNext(login_SinckCircleBean sinckCircleBean) {
                         if (iCallBack!=null){
-                            iCallBack.onCheckSuccess(login_checkCodeBean);
+                            iCallBack.SinckCircleSuccess(sinckCircleBean);
                         }
                     }
 
                     @Override
                     public void onError(Throwable e) {
                         if (iCallBack!=null){
-                            iCallBack.onCheckError(e.getMessage());
+                            iCallBack.SinckCircleError(e.getMessage());
                         }
                     }
 

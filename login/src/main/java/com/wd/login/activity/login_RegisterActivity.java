@@ -20,9 +20,11 @@ import com.wd.common.Base.BasePresenter;
 import com.wd.login.R;
 
 import com.wd.login.R2;
+import com.wd.login.bean.login_CheckCodeBean;
 import com.wd.login.bean.login_EmailBean;
 import com.wd.login.bean.login_LoginBean;
 import com.wd.login.bean.login_RegisterBean;
+import com.wd.login.bean.login_ResetUserPwdBean;
 import com.wd.login.contarct.login_LoginContract;
 import com.wd.login.presenter.login_LoginPresenter;
 import com.wd.login.utile.EncryptUtil;
@@ -126,6 +128,27 @@ Button hq;
     public void onEmailError(String str) {
         Log.i("xxx",str);
     }
+
+    @Override
+    public void onCheckSuccess(login_CheckCodeBean checkCodeBean) {
+
+    }
+
+    @Override
+    public void onCheckError(String str) {
+
+    }
+
+    @Override
+    public void onSetPassSuccess(login_ResetUserPwdBean resetUserPwdBean) {
+
+    }
+
+    @Override
+    public void onSetPassError(String str) {
+
+    }
+
     //获取验证码
     @OnClick(R2.id.register_hq)
     public void setonClickhq(){

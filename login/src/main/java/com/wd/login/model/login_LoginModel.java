@@ -2,9 +2,11 @@ package com.wd.login.model;
 
 import android.util.Log;
 
+import com.wd.login.bean.login_CheckCodeBean;
 import com.wd.login.bean.login_EmailBean;
 import com.wd.login.bean.login_LoginBean;
 import com.wd.login.bean.login_RegisterBean;
+import com.wd.login.bean.login_ResetUserPwdBean;
 import com.wd.login.contarct.login_LoginContract;
 import com.wd.login.utile.NetUtils;
 
@@ -118,4 +120,70 @@ import io.reactivex.schedulers.Schedulers;
                 });
     }
 
+    @Override
+    public void postCheck(String email, String code, CheckICallBack iCallBack) {
+        NetUtils.getInstance().getApis().doCheckCode(email,code)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<login_CheckCodeBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(login_CheckCodeBean checkCodeBean) {
+                        if (iCallBack!=null){
+                            iCallBack.onCheckSuccess(checkCodeBean);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (iCallBack!=null){
+                            iCallBack.onCheckError(e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+        }
+
+    @Override
+    public void putSetPass(String email, String pwd1, String pwd2, SetPassICallBack iCallBack) {
+        NetUtils.getInstance().getApis().doResetUserPwd(email,pwd1,pwd2)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<login_ResetUserPwdBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(login_ResetUserPwdBean resetUserPwdBean) {
+                        if (iCallBack!=null){
+                            iCallBack.onSetPassSuccess(resetUserPwdBean);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        if (iCallBack!=null){
+                            iCallBack.onSetPassError(e.getMessage());
+                        }
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+//    public static Wang createrRetrofit(){
+//        return RetrofitUtil.getInstance().getRetrofitServie(Wang.class);
+//    }
 }

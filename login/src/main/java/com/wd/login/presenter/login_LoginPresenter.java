@@ -2,9 +2,11 @@ package com.wd.login.presenter;
 
 import com.wd.common.Base.BasePresenter;
 import com.wd.common.Base.IBaseView;
+import com.wd.login.bean.login_CheckCodeBean;
 import com.wd.login.bean.login_EmailBean;
 import com.wd.login.bean.login_LoginBean;
 import com.wd.login.bean.login_RegisterBean;
+import com.wd.login.bean.login_ResetUserPwdBean;
 import com.wd.login.contarct.login_LoginContract;
 import com.wd.login.model.login_LoginModel;
 
@@ -87,5 +89,47 @@ import com.wd.login.model.login_LoginModel;
                 }
             }
         });
+    }
+
+    @Override
+    public void postCheck(String email, String code) {
+        mModel.postCheck(email, code, new login_LoginContract.LogModel.CheckICallBack() {
+            @Override
+            public void onCheckSuccess(login_CheckCodeBean checkCodeBean) {
+                IBaseView view = getView();
+                if (view instanceof login_LoginContract.LoginIView){
+                    ((login_LoginContract.LoginIView) view).onCheckSuccess(checkCodeBean);
+                }
+            }
+
+            @Override
+            public void onCheckError(String str) {
+                IBaseView view = getView();
+                if (view instanceof login_LoginContract.LoginIView){
+                    ((login_LoginContract.LoginIView) view).onCheckError(str);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void putSetPass(String email, String pwd1, String pwd2) {
+    mModel.putSetPass(email, pwd1, pwd2, new login_LoginContract.LogModel.SetPassICallBack() {
+        @Override
+        public void onSetPassSuccess(login_ResetUserPwdBean resetUserPwdBean) {
+            IBaseView view = getView();
+            if (view instanceof login_LoginContract.LoginIView){
+                ((login_LoginContract.LoginIView) view).onSetPassSuccess(resetUserPwdBean);
+            }
+        }
+
+        @Override
+        public void onSetPassError(String str) {
+            IBaseView view = getView();
+            if (view instanceof login_LoginContract.LoginIView){
+                ((login_LoginContract.LoginIView) view).onSetPassError(str);
+            }
+        }
+    });
     }
 }

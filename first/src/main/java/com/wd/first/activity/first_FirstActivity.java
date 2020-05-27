@@ -16,6 +16,8 @@ import com.wd.first.R;
 import com.wd.first.R2;
 import com.wd.first.bean.BannerBean;
 import com.wd.first.contract.IHomeContract;
+import com.wd.first.fragment.DiseaseFragment;
+import com.wd.first.fragment.DrugsFragment;
 import com.wd.first.prenster.IHomePrenster;
 
 import java.util.ArrayList;
@@ -29,6 +31,8 @@ public class first_FirstActivity extends BaseActivity implements IHomeContract.I
     XBanner xb;
     @BindView(R2.id.iv_disease)
     ImageView disease;
+    @BindView(R2.id.iv_drugs)
+    ImageView drugs;
     public ArrayList<String> list=new ArrayList<>();
 
     @Override
@@ -73,7 +77,14 @@ public class first_FirstActivity extends BaseActivity implements IHomeContract.I
         disease.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(first_FirstActivity.this,first_DepartmenActivity.class);
+                Intent intent = new Intent(first_FirstActivity.this, first_DepartmenActivity.class);
+                startActivity(intent);
+            }
+        });
+        drugs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(first_FirstActivity.this, first_DepartmenActivity.class);
                 startActivity(intent);
             }
         });

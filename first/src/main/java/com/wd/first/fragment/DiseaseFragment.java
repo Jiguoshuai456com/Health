@@ -10,13 +10,14 @@ import com.wd.common.Base.BaseFragment;
 import com.wd.common.Base.BasePresenter;
 import com.wd.first.R;
 import com.wd.first.R2;
-import com.wd.first.activity.DetailsActivity;
+import com.wd.first.activity.DiseaseDetailsActivity;
 import com.wd.first.adapter.BingAdapter;
 import com.wd.first.adapter.DiseaseAdapter;
 import com.wd.first.bean.BIngBean;
 import com.wd.first.bean.DepartmenBean;
 import com.wd.first.bean.DetailsBean;
 import com.wd.first.bean.DrgusBean;
+import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
 import com.wd.first.contract.DepartmenContraact;
 import com.wd.first.prenster.DepartmenPrenster;
@@ -102,7 +103,7 @@ public class DiseaseFragment extends BaseFragment implements DepartmenContraact.
     @Override
     public void getDetails(DetailsBean detailsBean) {
         if (detailsBean.getStatus().equals("0000")){
-            Intent intent = new Intent(getActivity(), DetailsActivity.class);
+            Intent intent = new Intent(getActivity(), DiseaseDetailsActivity.class);
             intent.putExtra("detailsBean",detailsBean);
             intent.putExtra("name",name);
             startActivity(intent);
@@ -116,6 +117,11 @@ public class DiseaseFragment extends BaseFragment implements DepartmenContraact.
 
     @Override
     public void getLittle(LittleBean littleBean) {
+
+    }
+
+    @Override
+    public void getDrgusDetails(DrgusDetailsBean drgusDetailsBean) {
 
     }
 

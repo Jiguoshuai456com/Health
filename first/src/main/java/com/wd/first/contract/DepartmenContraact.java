@@ -6,6 +6,7 @@ import com.wd.first.bean.BannerBean;
 import com.wd.first.bean.DepartmenBean;
 import com.wd.first.bean.DetailsBean;
 import com.wd.first.bean.DrgusBean;
+import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
 
 public interface DepartmenContraact {
@@ -15,6 +16,7 @@ public interface DepartmenContraact {
         void getDetails(DetailsBean detailsBean);
         void getDrgus(DrgusBean drgusBean);
         void getLittle(LittleBean littleBean);
+        void getDrgusDetails(DrgusDetailsBean drgusDetailsBean);
     }
     interface IPrenster{
         void onDepart();
@@ -22,6 +24,7 @@ public interface DepartmenContraact {
         void onDetails(int id);
         void onDrugs();
         void onLittle(int id,int page,int count);
+        void onDrgusDetails(int id);
     }
     interface IMoudle{
         void onDepart(ICallBck iCallBck);
@@ -29,6 +32,7 @@ public interface DepartmenContraact {
         void onDetails(int id,ICallBck3 iCallBck3);
         void onDrugs(DrugICallBck drugICallBck);
         void onLittle(int id,int page,int count,DrugICallBck2 drugICallBck2);
+        void onDrgusDetails(int id,DrugICallBck3 drugICallBck3);
         interface ICallBck{
             void getDepart(DepartmenBean departmenBean);
         }
@@ -43,6 +47,9 @@ public interface DepartmenContraact {
         }
         interface DrugICallBck2{
             void getLittle(LittleBean littleBean);
+        }
+        interface DrugICallBck3{
+            void getDrgusDetails(DrgusDetailsBean drgusDetailsBean);
         }
     }
 }

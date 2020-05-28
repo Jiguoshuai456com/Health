@@ -5,6 +5,7 @@ import com.wd.first.bean.BannerBean;
 import com.wd.first.bean.DepartmenBean;
 import com.wd.first.bean.DetailsBean;
 import com.wd.first.bean.DrgusBean;
+import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
 
 import io.reactivex.Observable;
@@ -26,6 +27,8 @@ public interface FirstApis {
     Observable<DrgusBean> getDrugs();
     @GET("knowledgeBase/v1/findDrugsKnowledgeList")
     Observable<LittleBean> getLittle(@Query("drugsCategoryId") int id,@Query("page")int page,@Query("count")int count);
+    @GET("knowledgeBase/v1/findDrugsKnowledge")
+    Observable<DrgusDetailsBean> getDrgusDetails(@Query("id") int id);
 
 
 }

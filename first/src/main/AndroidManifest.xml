@@ -3,7 +3,8 @@
     package="com.wd.first">
 
     <application>
-        <activity android:name=".activity.DetailsActivity"></activity>
+        <activity android:name=".activity.DrgusDetailsActivity"></activity>
+        <activity android:name=".activity.DiseaseDetailsActivity" />
         <activity android:name=".activity.first_DepartmenActivity" />
         <activity android:name=".activity.first_FirstActivity" />
     </application>

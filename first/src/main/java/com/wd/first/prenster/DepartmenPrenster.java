@@ -6,6 +6,7 @@ import com.wd.first.bean.BIngBean;
 import com.wd.first.bean.DepartmenBean;
 import com.wd.first.bean.DetailsBean;
 import com.wd.first.bean.DrgusBean;
+import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
 import com.wd.first.contract.DepartmenContraact;
 import com.wd.first.moudle.DepartmenMoudle;
@@ -84,6 +85,20 @@ public class DepartmenPrenster extends BasePresenter implements DepartmenContraa
                 if (view instanceof DepartmenContraact.IView){
                     DepartmenContraact.IView view1= (DepartmenContraact.IView) view;
                     view1.getLittle(littleBean);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onDrgusDetails(int id) {
+        moudle.onDrgusDetails(id, new DepartmenContraact.IMoudle.DrugICallBck3() {
+            @Override
+            public void getDrgusDetails(DrgusDetailsBean drgusDetailsBean) {
+                IBaseView view = getView();
+                if (view instanceof DepartmenContraact.IView){
+                    DepartmenContraact.IView view1= (DepartmenContraact.IView) view;
+                    view1.getDrgusDetails(drgusDetailsBean);
                 }
             }
         });

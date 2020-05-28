@@ -5,6 +5,7 @@ import com.wd.first.bean.BIngBean;
 import com.wd.first.bean.DepartmenBean;
 import com.wd.first.bean.DetailsBean;
 import com.wd.first.bean.DrgusBean;
+import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
 import com.wd.first.contract.DepartmenContraact;
 import com.wd.first.contract.FirstApis;
@@ -141,6 +142,34 @@ public class DepartmenMoudle implements DepartmenContraact.IMoudle {
                     public void onNext(LittleBean littleBean) {
                         if (drugICallBck2!=null)
                             drugICallBck2.getLittle(littleBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onDrgusDetails(int id,DrugICallBck3 drugICallBck3) {
+        createrRetrofit().getDrgusDetails(id).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<DrgusDetailsBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(DrgusDetailsBean drgusDetailsBean) {
+                        if (drugICallBck3!=null)
+                            drugICallBck3.getDrgusDetails(drgusDetailsBean);
                     }
 
                     @Override

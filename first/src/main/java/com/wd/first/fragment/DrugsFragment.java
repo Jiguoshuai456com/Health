@@ -1,5 +1,6 @@
 package com.wd.first.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,8 @@ import com.wd.common.Base.BaseFragment;
 import com.wd.common.Base.BasePresenter;
 import com.wd.first.R;
 import com.wd.first.R2;
+import com.wd.first.activity.DiseaseDetailsActivity;
+import com.wd.first.activity.DrgusDetailsActivity;
 import com.wd.first.adapter.BingAdapter;
 import com.wd.first.adapter.DiseaseAdapter;
 import com.wd.first.adapter.DrgusAdapter;
@@ -17,6 +20,7 @@ import com.wd.first.bean.BIngBean;
 import com.wd.first.bean.DepartmenBean;
 import com.wd.first.bean.DetailsBean;
 import com.wd.first.bean.DrgusBean;
+import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
 import com.wd.first.contract.DepartmenContraact;
 import com.wd.first.prenster.DepartmenPrenster;
@@ -30,6 +34,7 @@ public class DrugsFragment extends BaseFragment implements DepartmenContraact.IV
     RecyclerView rv;
     @BindView(R2.id.rv2)
     RecyclerView rv2;
+    private String name;
     @Override
     protected BasePresenter initPresenter() {
         return new DepartmenPrenster(this);
@@ -96,5 +101,30 @@ public class DrugsFragment extends BaseFragment implements DepartmenContraact.IV
         LittleAdapter adapter = new LittleAdapter(getActivity(), result);
         rv2.setLayoutManager(layoutManager2);
         rv2.setAdapter(adapter);
+        adapter.setOnclickLinstener(new LittleAdapter.OnclickLinstener() {
+
+
+
+            @Override
+            public void OnClick(int postion) {
+                int id = result.get(postion).getId();
+                BasePresenter presenter = getPresenter();
+                if (presenter instanceof DepartmenPrenster){
+                    DepartmenPrenster prenster= (DepartmenPrenster) presenter;
+                    prenster.onDrgusDetails(id);
+                }
+                name = result.get(postion).getName();
+            }
+        });
+    }
+
+    @Override
+    public void getDrgusDetails(DrgusDetailsBean drgusDetailsBean) {
+        if (drgusDetailsBean.getStatus().equals("0000")){
+            Intent intent = new Intent(getActivity(), DrgusDetailsActivity.class);
+            intent.putExtra("drgusDetailsBean",drgusDetailsBean);
+            intent.putExtra("name",name);
+            startActivity(intent);
+        }
     }
 }

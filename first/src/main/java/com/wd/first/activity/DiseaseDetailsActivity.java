@@ -16,7 +16,7 @@ import java.io.Serializable;
 
 import butterknife.BindView;
 
-public class DetailsActivity extends BaseActivity {
+public class DiseaseDetailsActivity extends BaseActivity {
     @BindView(R2.id.t1)
     TextView t1;
     @BindView(R2.id.t2)

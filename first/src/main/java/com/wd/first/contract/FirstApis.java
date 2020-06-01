@@ -7,6 +7,7 @@ import com.wd.first.bean.DetailsBean;
 import com.wd.first.bean.DrgusBean;
 import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
+import com.wd.first.bean.NewsBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -17,6 +18,8 @@ import retrofit2.http.Query;
 public interface FirstApis {
     @GET("v1/bannersShow")
     Observable<BannerBean> getBanner();
+    @GET("information/v1/findInformationList")
+    Observable<NewsBean> getNews(@Query("plateId") int id,@Query("page")int page,@Query("count")int count);
     @GET("knowledgeBase/v1/findDepartment")
     Observable<DepartmenBean> getDepart();
     @GET("knowledgeBase/v1/findDiseaseCategory")

@@ -23,7 +23,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class NetUtils {
     String BaseUrl="http://mobile.bwstudent.com/health/share/";
-
     private NetUtils(){
         initHttp();
     }

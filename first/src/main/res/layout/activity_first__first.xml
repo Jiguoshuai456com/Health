@@ -339,31 +339,22 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <RadioButton
+                    android:id="@+id/rb1"
                     android:textColor="@color/color_radiobutton"
                     android:gravity="center"
                     android:button="@null"
                     android:layout_weight="1"
-                    android:text="健康新闻"
+                    android:text="健康养生"
                     android:textSize="@dimen/sp_12"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
                 </RadioButton>
                 <RadioButton
+                    android:id="@+id/rb2"
                     android:textColor="@color/color_radiobutton"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="医学动态"
-                    android:button="@null"
-                    android:textSize="@dimen/sp_12"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content">
-
-                </RadioButton>
-                <RadioButton
-                    android:textColor="@color/color_radiobutton"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:text="医疗动态"
+                    android:text="健康减肥"
                     android:button="@null"
                     android:textSize="@dimen/sp_12"
                     android:layout_width="0dp"
@@ -371,10 +362,11 @@
 
                 </RadioButton>
                 <RadioButton
+                    android:id="@+id/rb3"
                     android:textColor="@color/color_radiobutton"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="养生美容"
+                    android:text="健康美食"
                     android:button="@null"
                     android:textSize="@dimen/sp_12"
                     android:layout_width="0dp"
@@ -382,10 +374,23 @@
 
                 </RadioButton>
                 <RadioButton
+                    android:id="@+id/rb4"
                     android:textColor="@color/color_radiobutton"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:text="健康新闻"
+                    android:text="健康美容"
+                    android:button="@null"
+                    android:textSize="@dimen/sp_12"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                </RadioButton>
+                <RadioButton
+                    android:id="@+id/rb5"
+                    android:textColor="@color/color_radiobutton"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:text="慢性疾病"
                     android:button="@null"
                     android:textSize="@dimen/sp_12"
                     android:layout_width="0dp"
@@ -394,6 +399,11 @@
                 </RadioButton>
             </RadioGroup>
         </LinearLayout>
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
     </LinearLayout>
 
 

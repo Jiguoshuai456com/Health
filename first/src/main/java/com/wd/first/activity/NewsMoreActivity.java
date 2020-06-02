@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wd.common.Base.BaseActivity;
 import com.wd.common.Base.BasePresenter;
@@ -15,6 +16,7 @@ import com.wd.first.adapter.DiseaseAdapter;
 import com.wd.first.adapter.NewsAdapter;
 import com.wd.first.bean.BannerBean;
 import com.wd.first.bean.NewsBean;
+import com.wd.first.bean.NewsDetailsBean;
 import com.wd.first.contract.IHomeContract;
 import com.wd.first.prenster.IHomePrenster;
 
@@ -74,9 +76,21 @@ public class NewsMoreActivity extends BaseActivity implements IHomeContract.IVie
         rv.setAdapter(adapter);
         adapter.setOnclickLinstener(new DiseaseAdapter.OnclickLinstener() {
             @Override
-            public void OnClick(int postion) {
 
+            public void OnClick(int postion) {
+                int id = result.get(postion).getId();
+                t1.setText(name);
+                Toast.makeText(NewsMoreActivity.this, "123", Toast.LENGTH_SHORT).show();
+                Intent intent1 = new Intent(NewsMoreActivity.this, NewsDetailsActivity.class);
+                intent1.putExtra("id",id);
+                intent1.putExtra("name",name);
+                startActivity(intent1);
             }
         });
+    }
+
+    @Override
+    public void getNewsDetails(NewsDetailsBean newsDetailsBean) {
+
     }
 }

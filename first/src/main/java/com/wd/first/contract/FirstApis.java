@@ -8,6 +8,7 @@ import com.wd.first.bean.DrgusBean;
 import com.wd.first.bean.DrgusDetailsBean;
 import com.wd.first.bean.LittleBean;
 import com.wd.first.bean.NewsBean;
+import com.wd.first.bean.NewsDetailsBean;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -16,22 +17,23 @@ import retrofit2.http.Header;
 import retrofit2.http.Query;
 
 public interface FirstApis {
-    @GET("v1/bannersShow")
+    @GET("share/v1/bannersShow")
     Observable<BannerBean> getBanner();
-    @GET("information/v1/findInformationList")
+    @GET("share/information/v1/findInformationList")
     Observable<NewsBean> getNews(@Query("plateId") int id,@Query("page")int page,@Query("count")int count);
-    @GET("knowledgeBase/v1/findDepartment")
+    @GET("share/knowledgeBase/v1/findDepartment")
     Observable<DepartmenBean> getDepart();
-    @GET("knowledgeBase/v1/findDiseaseCategory")
+    @GET("share/knowledgeBase/v1/findDiseaseCategory")
     Observable<BIngBean> getBing(@Query("departmentId") int id);
-    @GET("knowledgeBase/v1/findDiseaseKnowledge")
+    @GET("share/knowledgeBase/v1/findDiseaseKnowledge")
     Observable<DetailsBean> getDetails(@Query("id") int id);
-    @GET("knowledgeBase/v1/findDrugsCategoryList")
+    @GET("share/knowledgeBase/v1/findDrugsCategoryList")
     Observable<DrgusBean> getDrugs();
-    @GET("knowledgeBase/v1/findDrugsKnowledgeList")
+    @GET("share/knowledgeBase/v1/findDrugsKnowledgeList")
     Observable<LittleBean> getLittle(@Query("drugsCategoryId") int id,@Query("page")int page,@Query("count")int count);
-    @GET("knowledgeBase/v1/findDrugsKnowledge")
+    @GET("share/knowledgeBase/v1/findDrugsKnowledge")
     Observable<DrgusDetailsBean> getDrgusDetails(@Query("id") int id);
-
+    @GET("share/information/v1/findInformation")
+    Observable<NewsDetailsBean> getNewsDetails(@Query("infoId")int id);
 
 }

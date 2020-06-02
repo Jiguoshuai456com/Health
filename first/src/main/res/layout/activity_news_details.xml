@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".activity.NewsDetailsActivity">
+    <TextView
+        android:id="@+id/t1"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30">
+    </TextView>
+    <TextView
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:textColor="#333333"
+        android:id="@+id/t2"
+        android:textSize="16sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30">
+    </TextView>
+    <TextView
+        android:layout_marginLeft="@dimen/dp_20"
+        android:textColor="#333333"
+        android:id="@+id/t3"
+        android:textSize="10sp"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_30">
+    </TextView>
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_168">
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_width="@dimen/dp_320"
+            android:layout_height="@dimen/dp_168">
+
+        </ImageView>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/t4"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </TextView>
+
+</LinearLayout>

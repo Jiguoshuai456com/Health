@@ -14,6 +14,7 @@ import android.widget.Toast;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.wd.common.Base.BaseActivity;
 import com.wd.common.Base.BasePresenter;
+import com.wd.common.utiuls.SPUtils;
 import com.wd.login.R;
 import com.wd.login.R2;
 import com.wd.login.bean.login_EmailBean;
@@ -75,14 +76,18 @@ public class login_LoginActivity extends BaseActivity implements login_LoginCont
     @Override
     public void onLogSuccess(login_LoginBean loginBean) {
         Toast.makeText(this, ""+loginBean.getMessage(), Toast.LENGTH_SHORT).show();
+        if (loginBean.getStatus().equals("0000")){
+            String sessionId = loginBean.getResult().getSessionId();
+            int id = loginBean.getResult().getId();
+            SPUtils.putString(this,SPUtils.NAME,SPUtils.SESSIONID,sessionId);
+            SPUtils.putString(this,SPUtils.NAME,SPUtils.USERID,id+"");
+            ARouter.getInstance().build("/homepage/HomePageActivity")
+                    .withString("userName","张三")
+                    .withInt("age",123)
+                    .navigation();
+            Toast.makeText(login_LoginActivity.this, "登陆成功 ", Toast.LENGTH_SHORT).show();
+        }
 
-//            String sessionId = loginBean.getResult().getSessionId();
-//            String userName = loginBean.getResult().getUserName();
-//            SPUtils.putString(this,SPUtils.NAME,SPUtils.SESSIONID,sessionId);
-//            SPUtils.putString(this,SPUtils.NAME,SPUtils.USERID,userName+"");
-        Intent intent = new Intent(login_LoginActivity.this, HealthPageActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     @Override

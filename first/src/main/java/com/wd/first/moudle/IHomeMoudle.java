@@ -3,6 +3,7 @@ package com.wd.first.moudle;
 import com.wd.common.utiuls.NetUtils;
 import com.wd.first.bean.BannerBean;
 import com.wd.first.bean.NewsBean;
+import com.wd.first.bean.NewsDetailsBean;
 import com.wd.first.contract.FirstApis;
 import com.wd.first.contract.IHomeContract;
 
@@ -54,6 +55,34 @@ public class IHomeMoudle implements IHomeContract.IMoudle {
                     public void onNext(NewsBean newsBean) {
                         if (iCallBack2!=null)
                             iCallBack2.getNews(newsBean);
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
+                });
+    }
+
+    @Override
+    public void onNewsDetails(int infoId, ICallBack3 iCallBack3) {
+        createrRetrofit().getNewsDetails(infoId).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<NewsDetailsBean>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(NewsDetailsBean newsDetailsBean) {
+                        if (iCallBack3!=null)
+                            iCallBack3.getNewsDetails(newsDetailsBean);
                     }
 
                     @Override

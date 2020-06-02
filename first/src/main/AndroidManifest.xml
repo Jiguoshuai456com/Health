@@ -3,7 +3,8 @@
     package="com.wd.first">
 
     <application>
-        <activity android:name=".activity.NewsMoreActivity"></activity>
+        <activity android:name=".activity.NewsDetailsActivity"></activity>
+        <activity android:name=".activity.NewsMoreActivity" />
         <activity android:name=".activity.DrgusDetailsActivity" />
         <activity android:name=".activity.DiseaseDetailsActivity" />
         <activity android:name=".activity.first_DepartmenActivity" />

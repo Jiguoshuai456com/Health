@@ -5,4 +5,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="check">#3087ea</color>
     <color name="n">#333333</color>
+    <color name="transparent_gray_light">#89000000</color>
 </resources>

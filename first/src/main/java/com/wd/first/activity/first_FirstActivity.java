@@ -79,8 +79,8 @@ public class first_FirstActivity extends BaseActivity implements IHomeContract.I
         Movie_Fragment movie_fragment = new Movie_Fragment();
         Illness_Fragment illness_fragment = new Illness_Fragment();
         fragments.add(first_fragment);
-        fragments.add(movie_fragment);
         fragments.add(illness_fragment);
+        fragments.add(movie_fragment);
         tabs.add("首页");
         tabs.add("病友圈");
         tabs.add("视频");
